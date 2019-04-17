@@ -20,13 +20,18 @@ function displayResults(responseJson) {
   //   $('.results').append(temp);
     
   // }
-  $('.results-img').html(
+  if (responseJson.status === "error"){
+    alert(responseJson.message);
+  }
+  else{
+  
+  $('.results').append(
     `<img src="${responseJson.message}" class="results-img">`
   )
   //display the results section
   $('.results').removeClass('hidden');
 }
-
+}
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
