@@ -1,12 +1,8 @@
 'use strict';
-// function eventListener(){
-//   $('form').on('submit', function(event){
-//     event.preventDefault();
-//     getDogs($('.dogInput').val());
-//   });
-// }
+
+
 function getDogImage(userInput) {
-  fetch(`https://dog.ceo/api/breeds/image/random/${userInput}`)
+  fetch(`https://dog.ceo/api/breed/${userInput}/images/random/`)
     .then(response => response.json())
     .then(responseJson =>  
       displayResults(responseJson))
@@ -16,16 +12,14 @@ function getDogImage(userInput) {
 function displayResults(responseJson) {
   console.log(responseJson);
   //replace the existing image with the new one
-  // let imgString="";
-  for(let i =0; i< responseJson.message.length; i++){
     
-    let temp=`<img src="${responseJson.message[i]}" class="results-img">`;
-    $('.results').append(temp);
+  //   let temp=`<img src="${responseJson.message[i]}" class="results-img">`;
+  //   $('.results').append(temp);
     
-  }
-  // $('.results-img').html(
-  //   `<img src="${responseJson.message}" class="results-img">`
-  // )
+  // }
+  $('.results-img').html(
+    `<img src="${responseJson.message}" class="results-img">`
+  )
   //display the results section
   $('.results').removeClass('hidden');
 }
