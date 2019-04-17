@@ -2,12 +2,15 @@
 
 
 function getDogImage(userInput) {
-  fetch(`https://dog.ceo/api/breed/${userInput}/images/random/`)
-    .then(response => response.json())
-    .then(responseJson =>  
-      displayResults(responseJson))
-    .catch(error => alert('Something went wrong. Try again later.'));
-}
+  fetch(`https://dog.ceo/api/breed/${userInput}/images/random`)
+  .then(response => response.json())
+  .then(responseJson => {
+      displayResults(responseJson);
+  })
+  
+      .catch(error => alert('Something went wrong. Try again later.')); 
+  
+  }
 
 function displayResults(responseJson) {
   console.log(responseJson);
